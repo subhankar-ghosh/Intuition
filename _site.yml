@@ -1,4 +1,5 @@
 name: "Intuition"
+output_dir: "."
 navbar:
   title: "Intuition"
   left:
