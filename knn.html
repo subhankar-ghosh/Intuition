@@ -196,25 +196,8 @@ $(document).ready(function () {
 </div>
 
 
-<div id="tree-based-models" class="section level2">
-<h2>Tree Based Models</h2>
-<div id="what-is-a-tree" class="section level4">
-<h4>What is a tree?</h4>
-<p>Tree is a very common and powerful data structure in Computer Science. If we use/construct the tree properly the operation time reduces to <span class="math inline">\(O(log(N))\)</span> where <span class="math inline">\(N\)</span> is the number of data points. Thus it becomes of interest in Machine Learning as well since we almost always want the results to come immediately.</p>
-</div>
-<div id="umm-i-did-not-quite-understand-how-that-works-properly-how-is-it-used-in-machine-learning-again" class="section level4">
-<h4>Umm! I did not quite understand how that works properly! How is it used in Machine Learning again?</h4>
-<p>Well as seen in the picture the height of a tree is of the order <span class="math inline">\(log(N)\)</span> and to answer a query we only need to traverse one branch and NOT all the branches, so literally if you are unlucky <em>(The Worst Case)</em> you have to traverse the entire height .ie. of the order <span class="math inline">\(log(N)\)</span>.</p>
-<p>At first let us say we divide S into two sub spaces <span class="math inline">\(S_1\)</span> if <span class="math inline">\(X_1 \le t_1 and S_2 otherwise\)</span>.</p>
-<p>Then recursively we partition <span class="math inline">\(S_1\)</span> into <span class="math inline">\(S_11\)</span> and <span class="math inline">\(S_12\)</span> if <span class="math inline">\(X_2 \le t_2\)</span> and <span class="math inline">\(X_2 \gt t_2\)</span> respectively. And lets say we divide <span class="math inline">\(S_2\)</span> into <span class="math inline">\(S_21\)</span> and <span class="math inline">\(S_22\)</span> based on <span class="math inline">\(X_1 \le t_3\)</span> or not. This process continues untill a <em>convergence criteria</em> is reached. So if I have to write a pseudo code then it would look like this: <a href="tree.html">Read More</a></p>
-</div>
-</div>
-<div id="monte-carlo-approximation" class="section level2">
-<h2>Monte Carlo Approximation</h2>
-<p>If you have a random variable X with a known distribution (for example Uniform Distribution or Normal Distribution), but now you are solving a problem which requires knowing about the distribution of a function of the random variable X <span class="math inline">\(f(X)\)</span>. What are the paths you can travel to solve it? <a href="montecarlo.html">Read More</a></p>
-<div id="hope-you-learnt-something-and-enjoyed-it-stay-tuned-for-more-articles" class="section level5">
-<h5>Hope you learnt something and enjoyed it! Stay tuned for more articles!</h5>
-</div>
+<div id="nearest-neighbour-models" class="section level2">
+<h2>Nearest Neighbour Models</h2>
 </div>
 
 <p>By Subhankar Ghosh</p>

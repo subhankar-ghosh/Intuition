@@ -1,5 +1,7 @@
 ---
 title: "Intuition"
+author: "Subhankar Ghosh"
+date: "June 16, 2018"
 output: html_document
 ---
 
@@ -7,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Tree Based Models
+# Tree Based Models
 
 #### What is a tree?
 
@@ -148,7 +150,3 @@ Well there are many techniques/approaches to handle pruning of trees. In case of
 One way is to simple stop early by either pre-deciding the maximum height or stop splitting if the Information Gain is less that a pre-set threshold. But this is not optimal since Trees use a Greedy approach so we never know that how much of an Information Gain we will acheive in the subsequent steps.
 
 A very famous approach is to grow the tree as long as we can and then start pruning it by using *Cost-Complexity Pruning.* Now what Cost-Complexity pruning is will be covered in another article. For the time being you can study it from [here](https://onlinecourses.science.psu.edu/stat857/node/60).
-
-
-##### Hope you learnt something and enjoyed it! Stay tuned for more articles!
-

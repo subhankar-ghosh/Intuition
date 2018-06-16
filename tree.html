@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Subhankar Ghosh" />
+
+<meta name="date" content="2018-06-16" />
+
+<title>Intuition</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Intuition</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Intuition</h1>
+<h4 class="author"><em>Subhankar Ghosh</em></h4>
+<h4 class="date"><em>June 16, 2018</em></h4>
+
+</div>
+
+
+<div id="tree-based-models" class="section level1">
+<h1>Tree Based Models</h1>
+<div id="what-is-a-tree" class="section level4">
+<h4>What is a tree?</h4>
+<p>Tree is a very common and powerful data structure in Computer Science. If we use/construct the tree properly the operation time reduces to <span class="math inline">\(O(log(N))\)</span> where <span class="math inline">\(N\)</span> is the number of data points. Thus it becomes of interest in Machine Learning as well since we almost always want the results to come immediately.</p>
+</div>
+<div id="umm-i-did-not-quite-understand-how-that-works-properly-how-is-it-used-in-machine-learning-again" class="section level4">
+<h4>Umm! I did not quite understand how that works properly! How is it used in Machine Learning again?</h4>
+<p>Well as seen in the picture the height of a tree is of the order <span class="math inline">\(log(N)\)</span> and to answer a query we only need to traverse one branch and NOT all the branches, so literally if you are unlucky <em>(The Worst Case)</em> you have to traverse the entire height .ie. of the order <span class="math inline">\(log(N)\)</span>.</p>
+<div class="figure">
+<img src="1img.png" alt="Tree Structure" style="width:50.0%" />
+<p class="caption">Tree Structure</p>
+</div>
+<p>Not only that trees are very easy to interpret and are not a black box. Simply make a single decision at every node.</p>
+<p>At every node we have to make a decision based on a particular feature’s value. Essentially we have to divide our feature space based on the feature’s value. For example at the first node we make a decision that “okay, if the value of <span class="math inline">\(X_1\)</span> is less than <span class="math inline">\(t_1\)</span> we would go to the left else to the right.”</p>
+<p>Similarly at every node we do the same and when we have taken these decisions <em>recursively</em> we have our feature space divided into certain regions. Now we associate a particular class to the regions if it is a classification problem we are trying to solve OR a continuous value based on the mean/median/max/min etc depending on the problem statement if we are trying to solve a regression problem.</p>
+</div>
+<div id="cool-wait-what-do-we-mean-by-recursive-partitioning" class="section level4">
+<h4>Cool! Wait what do we mean by recursive partitioning?</h4>
+<p>Basically what it means is that we always partition a subspace of the entire feature space and not the entire feature space at anytime( well except the first time).</p>
+<p>EXAMPLE: Let us take just two features <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> and we have the entire 2 dimentional feature space S.</p>
+<div class="figure">
+<img src="2img.png" alt="Recursive partitioning" />
+<p class="caption">Recursive partitioning</p>
+</div>
+<p>At first let us say we divide S into two sub spaces <span class="math inline">\(S_1\)</span> if <span class="math inline">\(X_1 \le t_1 and S_2 otherwise\)</span>.</p>
+<p>Then recursively we partition <span class="math inline">\(S_1\)</span> into <span class="math inline">\(S_11\)</span> and <span class="math inline">\(S_12\)</span> if <span class="math inline">\(X_2 \le t_2\)</span> and <span class="math inline">\(X_2 \gt t_2\)</span> respectively. And lets say we divide <span class="math inline">\(S_2\)</span> into <span class="math inline">\(S_21\)</span> and <span class="math inline">\(S_22\)</span> based on <span class="math inline">\(X_1 \le t_3\)</span> or not. This process continues untill a <em>convergence criteria</em> is reached. So if I have to write a pseudo code then it would look like this:</p>
+<pre><code>Partition(S, Features_Space)
+{
+  if(Convergence criteria met)
+    Stop Process
+  
+  Split_Feature = Select Feature from Feature_Space to divide S
+
+  list(S_1, S_2, ... S_p) = Divide S into p sub-spaces based on Split_Feature
+  
+  Partition(S_1, Features_Space)
+  Partition(S_2, Features_Space)
+  ...Partition(S_p, Features_Space)
+}</code></pre>
+</div>
+<div id="i-really-dont-understand-how-you-are-selecting-one-particular-feature-at-every-node-to-divide-the-subspace-on-also-the-splitting-point" class="section level4">
+<h4>I really don’t understand how you are selecting one particular feature at every node to divide the subspace on? Also the splitting point?</h4>
+<p>Good question, I was coming to that. At every step we choose the <em>most informative feature</em>. The feature that provides us with the most amount of information about our task given what we already know. For example we might want to ask “Is it a living being?” before we are “Is it a male or a female?”. <em>We select that feature and split which provides the maximum information gain</em> <span class="math inline">\(IG\)</span></p>
+</div>
+<div id="information-gain-what-is-that" class="section level4">
+<h4>Information Gain! What is that?</h4>
+<p>Before Information Gain understand what is homogenous node. A node is called Homogenous if it contains datapoints of only one class, otherwise the node is called Heterogenous or Impure.</p>
+<p>Now Information Gain is measured as follows:</p>
+<p><span class="math display">\[IG(D_{parent}, F) = I(D_{parent}) - \sum_i I(D_{child-i})\]</span></p>
+<p><span class="math inline">\(D_{parent}=\)</span> Parent Node</p>
+<p><span class="math inline">\(D_{child-i}=\)</span> ith Child Node</p>
+<p><span class="math inline">\(F=Split Feature\)</span></p>
+<p><span class="math inline">\(I(D)=\)</span> Impurity measure of node D.</p>
+<p>We select the split that produces maximum Information Gain <span class="math inline">\(IG(D)\)</span>.</p>
+<div style="background-color:#B8B8B8; text-align:justified; vertical-align: left; padding:40px 10px;">
+<p>Impurity measures are used to measure how impure a node is. If a node is homogenous the value of the impurity measure is 0. We have the following very commonly used impurity measures.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Entropy</a>: Entropy was first introduced by Claude Shannon to describe the impurity of a set of features. As the name suggests and as a very simplistic explaination of entropy it is the measure of disorder in the data. The entropy of a node will be highest if the probabilities of all classes in that node are equal (highest heterogenity). Will be 0 if a node contains data from only one class.</li>
+</ul>
+<p><span class="math display">\[Entropy(p) = -\sum_i p_i log_2(p_i)\]</span> <span class="math inline">\(p_i:\)</span> Probability of class i in that node.</p>
+<p>A tree algorithm called ID3 uses Entropy as the impurity measure.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity">Gini Impurity</a>: Gini can be thought of as minimizing the probability of misclassification. Gini will also be 0 if node contains datapoints of only 1 class and maximum if node contains equal proportion of data from all classes.</li>
+</ul>
+<p><span class="math display">\[Gini = -\sum_i p_i * (1-p_i)\]</span></p>
+<p><span class="math inline">\(p_i:\)</span> Probability of class i in that node.</p>
+<p>CART uses Gini for feature selection at every node.</p>
+<ul>
+<li><a href="">Misclassification</a>:</li>
+</ul>
+<p><span class="math display">\[Misclassification = 1 - max (p_i)\]</span></p>
+<p><span class="math inline">\(p_i:\)</span> Probability of class i in that node.</p>
+</div>
+</div>
+<div id="okay-let-us-look-at-an-example" class="section level4">
+<h4>Okay let us look at an example!</h4>
+<p>In the figure the tuples (a, b) in each box/node signify that there are <span class="math inline">\(a\)</span> number of datapoints of class A and <span class="math inline">\(b\)</span> number of datapoints of class B. Lets look at the two splits on Feature-1 and on Feature-2:</p>
+<div class="figure">
+<img src="3img.png" alt="Splitting Example" />
+<p class="caption">Splitting Example</p>
+</div>
+<ul>
+<li>Split on Feature 1:</li>
+</ul>
+<p><span class="math inline">\(I(Child-1) = I(Child-2) = 0\)</span> and <span class="math inline">\(I(child-3)&gt;0\)</span></p>
+<ul>
+<li>Split on Feature 2:</li>
+</ul>
+<p><span class="math inline">\(I(Child-1)&gt;0, I(Child-2)&gt;0, I(child-3)&gt;0\)</span></p>
+<p>So <span class="math inline">\(IG(D_{parent}, Feature-1) &gt; IG(D_{parent}, Feature-2)\)</span> So we the decision tree will pick Feature-1.</p>
+</div>
+<div id="how-do-we-get-the-decision-out-of-the-tree" class="section level4">
+<h4>How do we get the decision out of the tree?</h4>
+<p>Well the result finding procedure is very simple. We only get the decision/prediction from the leaf nodes.</p>
+<p>For <em>regression</em> we simply find the average of the output variable and that is the prediction.</p>
+<p>For <em>classification</em> we simply find the class with the maximum proportion in that particular leaf node.</p>
+</div>
+<div id="that-was-simple.-but-how-long-should-we-grow-the-trees" class="section level4">
+<h4>That was simple. But how long should we grow the trees?</h4>
+<p>Well there are many techniques/approaches to handle pruning of trees. In case of trees the height of trees is the measure of their complexity.</p>
+<p>One way is to simple stop early by either pre-deciding the maximum height or stop splitting if the Information Gain is less that a pre-set threshold. But this is not optimal since Trees use a Greedy approach so we never know that how much of an Information Gain we will acheive in the subsequent steps.</p>
+<p>A very famous approach is to grow the tree as long as we can and then start pruning it by using <em>Cost-Complexity Pruning.</em> Now what Cost-Complexity pruning is will be covered in another article. For the time being you can study it from <a href="https://onlinecourses.science.psu.edu/stat857/node/60">here</a>.</p>
+</div>
+</div>
+
+<p>By Subhankar Ghosh</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
