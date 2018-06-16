@@ -34,12 +34,23 @@ $$\hat{\mu} = \frac{\sum_{i=1}^S f(X_i)}{S} \approx E[f(X)]$$
 Simple one. $X \sim Unif(0, 1)$ find $E[Y]$ where $y = x^2$
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+set.seed(1)
 x = runif(100)
 plot(x=x, y=rep(1, 100), type = 'l', main = 'Uniform(0, 1)')
 hist(x^2, col = 'steelblue', border = 'white', xlab='x^2', main = 'Empirical distribution of x^2, 100 sample points', breaks = 50)
+mean_100 = mean(x^2)
 hist(runif(500)^2, col = 'steelblue', xlab='x^2', border = 'white', main = 'Empirical distribution of x^2, 500 sample points', breaks = 50)
+mean_500 = mean(runif(500)^2)
 hist(runif(1500)^2, col = 'steelblue', xlab='x^2', border = 'white', main = 'Empirical distribution of x^2, 1500 sample points', breaks = 50)
+mean_1500 = mean(runif(1500)^2)
 ```
+
+```{r}
+print(paste0("Mean with 100 samples ", mean(runif(100)^2)))
+print(paste0("Mean with 500 samples ", mean(runif(500)^2)))
+print(paste0("Mean with 1500 samples ", mean(runif(1500)^2)))
+```
+
 
 We sampled 100, 500 and 1500 iid points from $Unif(0, 1)$ and plotted their $f(X) = X^2$ values. As can be seen from the plot they are approximately same as the analytical plot should be. 
 
